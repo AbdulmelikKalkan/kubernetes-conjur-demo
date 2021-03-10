@@ -23,8 +23,8 @@ function finish {
 
   # Stop the running processes
   runDockerCommand "
-    ./stop
-    cd kubernetes-conjur-deploy-$UNIQUE_TEST_ID && ./stop
+    bash -x ./stop
+    cd kubernetes-conjur-deploy-$UNIQUE_TEST_ID && bash -x ./stop
   "
 
   # Remove the deploy directory
