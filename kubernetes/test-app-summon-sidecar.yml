@@ -34,6 +34,11 @@ spec:
       labels:
         app: test-app-summon-sidecar
     spec:
+      securityContext:
+        fsGroup: 65534
+        runAsGroup: 65534
+        runAsNonRoot: true
+        runAsUser: 65534
       serviceAccountName: test-app-summon-sidecar
       containers:
       - image: {{ TEST_APP_DOCKER_IMAGE }}
@@ -94,11 +99,16 @@ spec:
                 name: {{ CONFIG_MAP_NAME }}
                 key: ssl-certificate
         volumeMounts:
+          - mountPath: /etc/conjur/ssl
+            name: client-ssl
           - mountPath: /run/conjur
             name: conjur-access-token
       imagePullSecrets:
         - name: dockerpullsecret
       volumes:
+        - name: client-ssl
+          emptyDir:
+            medium: Memory
         - name: conjur-access-token
           emptyDir:
             medium: Memory
