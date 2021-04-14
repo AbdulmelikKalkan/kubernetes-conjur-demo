@@ -161,9 +161,9 @@ deploy_sidecar_app() {
     sed "s#{{ SERVICE_TYPE }}#$(app_service_type)#g" |
     $cli create -f -
 
-  if [[ "$PLATFORM" == "openshift" ]]; then
-    oc expose service test-app-summon-sidecar
-  fi
+  #if [[ "$PLATFORM" == "openshift" ]]; then
+  #  oc expose service test-app-summon-sidecar
+  #fi
 
   echo "Test app/sidecar deployed."
 }
@@ -197,9 +197,9 @@ deploy_init_container_app() {
     sed "s#{{ SERVICE_TYPE }}#$(app_service_type)#g" |
     $cli create -f -
 
-  if [[ "$PLATFORM" == "openshift" ]]; then
-    oc expose service test-app-summon-init
-  fi
+  #if [[ "$PLATFORM" == "openshift" ]]; then
+  #  oc expose service test-app-summon-init
+  #fi
 
   echo "Test app/init-container deployed."
 }
@@ -235,9 +235,9 @@ deploy_init_container_app_with_host_outside_apps() {
     sed "s#{{ SERVICE_TYPE }}#$(app_service_type)#g" |
     $cli create -f -
 
-  if [[ "$PLATFORM" == "openshift" ]]; then
-    oc expose service test-app-with-host-outside-apps-branch-summon-init
-  fi
+  #if [[ "$PLATFORM" == "openshift" ]]; then
+  #  oc expose service test-app-with-host-outside-apps-branch-summon-init
+  #fi
 
   echo "Test app/init-container deployed."
 }
@@ -286,9 +286,9 @@ deploy_secretless_app() {
     sed "s#{{ SERVICE_TYPE }}#$(app_service_type)#g" |
     $cli create -f -
 
-  if [[ "$PLATFORM" == "openshift" ]]; then
-    oc expose service test-app-secretless
-  fi
+  #if [[ "$PLATFORM" == "openshift" ]]; then
+  #  oc expose service test-app-secretless
+  #fi
 
   echo "Secretless test app deployed."
 }
