@@ -2,7 +2,7 @@ name: Sync Fork Upstream
 
 on:
   schedule:
-    - cron: '0 8 * * *' # every day 8am
+    - cron: '0 0 1 * *' # every day 8am
   workflow_dispatch: # on button click
 
 jobs:
